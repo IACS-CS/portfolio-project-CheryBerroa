@@ -1,33 +1,290 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Example Student's Portfolio</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <!-- Demo content -->
-    <section class="hero">
-      <h1>Example Student's Portfolio</h1>
-      <a href="#about-me" class="cta">Learn More</a>
-    </section>
-    <main>
-      <section class="info" id="about-me">
-        <div class="about-me">
-          <h2>About Me</h2>
-          <p>
-            Lorem ipsum fill in some text here about yourself... I'm just going
-            to write enough filler text here so that we can see text-wrapping in
-            action so we can make sure our paragraph text looks good in
-            paragraphs.
-          </p>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        /* Basic Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* Body and Font Styling */
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; line-height: 1.6; color: #333; }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #007BFF;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .button:hover {
+            background-color: #218838;
+        }
+
+        /* About Me Section */
+        #about {
+            background-color: #fff;
+            padding: 60px 20px;
+        }
+
+        .about-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .about-text {
+            width: 50%;
+            padding: 20px;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .about-image img {
+            border-radius: 10px;
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .about-text {
+                width: 100%;
+                text-align: center;
+            }
+
+            .about-image {
+                width: 100%;
+                text-align: center;
+            }
+
+            .about-image img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        /* Image Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Project Showcase */
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .project-card {
+            background-color: #fff;
+            padding: 20px;
+            width: 45%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .project-card p {
+            color: #666;
+        }
+
+        .project-card a {
+            display: inline-block;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .project-card a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #c6093b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .project-card { width: 48%; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.5rem; }
+            .hero { padding: 40px 10px; }
+            .project-card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu Bar -->
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About Me</a>
+    </div>
+
+    <!-- Portfolio Landing Page -->
+    <div class="hero" id="home">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Explore my work, projects, and more!</p>
+        <a href="#projects" class="button">See My Projects</a>
+    </div>
+
+    <!-- About Me Section -->
+    <div class="container" id="about">
+        <h2 style="text-align: center; margin-bottom: 40px;">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Hi, My name is Chery Berroa.</h3>
+                <p>I'm an social person who likes to talk and very outgoing.</p>
+                <p>When I'm not coding, you can find me exploring new things such as sports or gaming. I love learning and am always striving to improve my skills and create better user experiences.</p>
+            </div>
+            <div class="about-image">
+                <img src="your-photo.jpg" alt="John Doe">
+            </div>
         </div>
-      </section>
-      <section class="sample-work" id="cyoa">
-        <h2>My Choose-Your-Own Adventure Project</h2>
-        <p>For example a project could go here...</p>
-      </section>
-    </main>
-  </body>
-  <!-- Keep the script at the bottom of your file -->
-  <script src="main.js"></script>
+    </div>
+
+    <!-- Image Gallery -->
+    <div class="container" id="projects">
+        <h2 style="text-align: center; margin-bottom: 40px;">My Work</h2>
+        <div class="gallery">
+            <img src="image1.jpg" alt="Project 1">
+            <img src="image2.jpg" alt="Project 2">
+            <img src="image3.jpg" alt="Project 3">
+            <img src="image4.jpg" alt="Project 4">
+        </div>
+    </div>
+
+    <!-- Project Showcase -->
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 40px;">My Projects</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3>Project 1</h3>
+                <p>Short description about project 1.</p>
+                <a href="#project1-details">See Details</a>
+            </div>
+            <div class="project-card">
+                <h3>Project 2</h3>
+                <p>Short description about project 2.</p>
+                <a href="#project2-details">See Details</a>
+            </div>
+            <div class="project-card">
+                <h3>Project 3</h3>
+                <p>Short description about project 3.</p>
+                <a href="#project3-details">See Details</a>
+            </div>
+            <div class="project-card">
+                <h3>Project 4</h3>
+                <p>Short description about project 4.</p>
+                <a href="#project4-details">See Details</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+    </footer>
+
+</body>
 </html>

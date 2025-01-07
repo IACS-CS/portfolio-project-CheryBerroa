@@ -1,55 +1,242 @@
-/* There's some sample CSS here which you can use or nuke as you like */
+/* Basic Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {
-  /* Make #id links scroll smoothly */
-  scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Smooth scrolling */
 }
 
-body {
-  /* Change to something you like, but please do customize the font! */
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  line-height: 1.4;
-  /* reset default margins */
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+/* Body and Font Styling */
+body { 
+    font-family: 'Roboto', sans-serif; 
+    background-color: #f4f4f4; 
+    line-height: 1.6; 
+    color: #333; 
+    padding: 0;
 }
 
+/* Navbar Styling */
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Hero Section with Gradient Background */
 .hero {
-  box-sizing: border-box;
-  /* Full screen hero section */
-  width: 100%;
-  height: 100dvh;
-  /* Center the content vertically and horizontally */
-  display: grid;
-  place-content: center;
-  /* Custom text and stuff */
-  background: #0033a0;
-  color: white;
-  font-family: Futura;
-  font-weight: bold;
-  font-size: 70px;
-  text-align: center;
-}
-.hero a {
-  color: white;
-  text-decoration: underline;
-  text-decoration-color: #c6093b;
+    background: linear-gradient(45deg, #007BFF, #28a745);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeIn 2s ease-in-out;
 }
 
-/* A little "activation" to demonstrate JS is working in the template */
-.hero {
-  transition: background 0.5s;
-}
-.hero.active {
-  background: #c6093b;
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    animation: slideUp 1.5s ease-out;
 }
 
-main {
-  /* Make sure our content can scroll the hero away */
-  min-height: 100dvh;
-  max-width: 35em; /* choose a width for text */
-  line-height: 1.8; /* choose a line spacing */
-  font-size: 18px; /* choose a font size */
-  margin: 0 auto; /* center the content */
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+}
+
+.button {
+    background-color: #ff5722;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #e64a19;
+}
+
+/* About Me Section */
+#about {
+    padding: 60px 20px;
+    background-color: #f7f7f7;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: center;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.about-text {
+    width: 60%;
+}
+
+.about-text h3 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.about-text p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+.about-image {
+    width: 35%;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Image Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Project Showcase */
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    padding: 40px;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.project-card {
+    background-color: #fff;
+    padding: 25px;
+    width: 45%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.project-card p {
+    color: #666;
+}
+
+.project-card a {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.project-card a:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    font-size: 1rem;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .project-card { width: 48%; }
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-text { width: 100%; }
+    .about-image { width: 100%; }
+}
+
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.5rem; }
+    .hero { padding: 40px 10px; }
+    .project-card { width: 100%; }
+    .gallery img { width: 100%; }
 }
