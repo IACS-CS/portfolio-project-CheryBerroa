@@ -165,7 +165,7 @@ nav {
 
 /* Project Card Styling */
 .project-card {
-    background-color: #fff;
+    background-color: rgb(255, 69, 0); /* Changed to the portfolio theme color */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -187,12 +187,12 @@ nav {
 
 .project-card h3 {
     font-size: 1.5rem; /* Reduced size to fit better */
-    color: #333;
+    color: #fff; /* Change text color to white for contrast */
     margin-bottom: 10px;
 }
 
 .project-card p {
-    color: #666;
+    color: #fff; /* Change text color to white for contrast */
     font-size: 1rem;
     margin-bottom: 10px;
     line-height: 1.6;
@@ -217,6 +217,7 @@ nav {
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
+
 
 /* Animations */
 @keyframes fadeInUp {
