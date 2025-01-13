@@ -1,118 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Showcase - My Portfolio</title>
-    <style>
-        body {
-            color: black;
-        }
-
-        /* Layout for Showcase Section */
-        .container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Two columns */
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .project-card {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: scale(1.05);
-        }
-
-        /* Make the layout responsive */
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr; /* Stack projects in one column on smaller screens */
-            }
-        }
-
-        /* Footer styling */
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 40px;
-        }
-
-        footer a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        footer a:hover {
-            color: #c6093b;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
 
-    <!-- Menu Bar -->
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="showcase.html">Showcase</a>
-    </div>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1000">
+                <span>Chery's Portfolio</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"><a href="about.html">About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="projects.html">Projects</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"><a href="showcase.html">Showcase</a></div>
+                <div class="link contact-btn" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a href="contact.html">Contact</a></div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        </div>
+        <div class="dropdown">
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="showcase.html">Showcase</a>
+                <a href="contact.html">Contact</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
 
     <!-- Showcase Section -->
-    <div class="container" id="showcase">
-        <h2 style="text-align: center; margin-bottom: 40px;">Showcase</h2>
+    <section>
+        <div class="container" id="showcase">
+            <h2 style="text-align: center; margin-bottom: 40px;">Showcase</h2>
 
-        <!-- Project 1: Choose Your Own Adventure Game -->
-        <div class="project-card">
-            <h3>Choose Your Own Adventure: Chery's Game</h3>
-            <img src="hiking.jpg" alt="Hiking Project">
-            <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript</p>
-            <p><strong>Purpose:</strong> This is an interactive game where players make choices that affect the story. The goal is to create a fun experience where each decision leads to a different outcome.</p>
-            <p><strong>How It Works:</strong> The game uses HTML to create the structure, CSS to style it, and JavaScript to manage the choices the player makes. The main challenge was to make sure the player's choices changed the story and made the game interesting. I used JavaScript to listen for clicks and update the game based on the player's decisions.</p>
-        </div>
+            <!-- Project 1: Choose Your Own Adventure Game -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1000">
+                <h3>Choose Your Own Adventure: Chery's Game</h3>
+                <img src="hiking.jpg" alt="Hiking Project">
+                <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript</p>
+                <p><strong>Purpose:</strong> This is an interactive game where players make choices that affect the story. The goal is to create a fun experience where each decision leads to a different outcome.</p>
+                <p><strong>How It Works:</strong> The game uses HTML to create the structure, CSS to style it, and JavaScript to manage the choices the player makes. The main challenge was to make sure the player's choices changed the story and made the game interesting. I used JavaScript to listen for clicks and update the game based on the player's decisions.</p>
+            </div>
 
-        <!-- Project 2: Business Card - Digital Design -->
-        <div class="project-card">
-            <h3>Business Card - Digital Design</h3>
-            <img src="BusinessCard.png" alt="Business Card Project">
-            <p><strong>Technologies Used:</strong> HTML, CSS</p>
-            <p><strong>Purpose:</strong> This is a digital version of a business card that displays my name, contact info, and links to my social media profiles.</p>
-            <p><strong>How It Works:</strong> I used HTML to create the structure of the business card, and CSS to style it. The layout is simple, using Flexbox to make sure everything looks good on different screen sizes. I also added hover effects with CSS to make the card interactive.</p>
-        </div>
+            <!-- Project 2: Business Card - Digital Design -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <h3>Business Card - Digital Design</h3>
+                <img src="BusinessCard.png" alt="Business Card Project">
+                <p><strong>Technologies Used:</strong> HTML, CSS</p>
+                <p><strong>Purpose:</strong> This is a digital version of a business card that displays my name, contact info, and links to my social media profiles.</p>
+                <p><strong>How It Works:</strong> I used HTML to create the structure of the business card, and CSS to style it. The layout is simple, using Flexbox to make sure everything looks good on different screen sizes. I also added hover effects with CSS to make the card interactive.</p>
+            </div>
 
-        <!-- Project 3: Imitation Web Design -->
-        <div class="project-card">
-            <h3>Imitation Project - Web Design Recreation</h3>
-            <img src="Clue.jpg" alt="Imitation Project">
-            <p><strong>Technologies Used:</strong> HTML, CSS</p>
-            <p><strong>Purpose:</strong> In this project, I recreated a website's design using HTML and CSS. The goal was to learn how to build a page that looks similar to another, and practice my web design skills.</p>
-            <p><strong>How It Works:</strong> I focused on using HTML for the layout and CSS for the styling. I made sure the page was responsive and looked good on different screen sizes. This project helped me practice using Flexbox and CSS Grid to create a clean, organized design.</p>
-        </div>
+            <!-- Project 3: Imitation Web Design -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <h3>Imitation Project - Web Design Recreation</h3>
+                <img src="Clue.jpg" alt="Imitation Project">
+                <p><strong>Technologies Used:</strong> HTML, CSS</p>
+                <p><strong>Purpose:</strong> In this project, I recreated a website's design using HTML and CSS. The goal was to learn how to build a page that looks similar to another, and practice my web design skills.</p>
+                <p><strong>How It Works:</strong> I focused on using HTML for the layout and CSS for the styling. I made sure the page was responsive and looked good on different screen sizes. This project helped me practice using Flexbox and CSS Grid to create a clean, organized design.</p>
+            </div>
 
-        <!-- Project 4: Zen Garden - CSS-Only Design -->
-        <div class="project-card">
-            <h3>Zen Garden - CSS-Only Design</h3>
-            <img src="Css Zen Garden.png" alt="Zen Garden Project">
-            <p><strong>Technologies Used:</strong> HTML, CSS</p>
-            <p><strong>Purpose:</strong> This project is a simple CSS-only design of a Zen Garden. The goal was to create a calm and peaceful design using only CSS, without any JavaScript.</p>
-            <p><strong>How It Works:</strong> I used HTML for the basic structure and CSS for the design. The challenge was to make everything look smooth and dynamic without using JavaScript. I used CSS animations to make the water ripple and added effects like color changes to give the page a peaceful feel.</p>
+            <!-- Project 4: Zen Garden - CSS-Only Design -->
+            <div class="project-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                <h3>Zen Garden - CSS-Only Design</h3>
+                <img src="Css Zen Garden.png" alt="Zen Garden Project">
+                <p><strong>Technologies Used:</strong> HTML, CSS</p>
+                <p><strong>Purpose:</strong> This project is a simple CSS-only design of a Zen Garden. The goal was to create a calm and peaceful design using only CSS, without any JavaScript.</p>
+                <p><strong>How It Works:</strong> I used HTML for the basic structure and CSS for the design. The challenge was to make everything look smooth and dynamic without using JavaScript. I used CSS animations to make the water ripple and added effects like color changes to give the page a peaceful feel.</p>
+            </div>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer>
         <p>Contact: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
     </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({offset: 0});
+    </script>
 
 </body>
 </html>

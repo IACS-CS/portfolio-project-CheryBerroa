@@ -1,177 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
 /* Basic Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
 
 html {
     scroll-behavior: smooth; /* Smooth scrolling */
+    overflow-x: hidden;
 }
 
-/* Body and Font Styling */
-body { 
-    font-family: 'Roboto', sans-serif; 
-    background-color: #f4f4f4; 
-    line-height: 1.6; 
-    color: #333; 
-    padding: 0;
+/* Body Styling */
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to right, #ff0000, #000000); /* Red and Black gradient */
+    line-height: 1.6;
+    color: #fff; /* White text to contrast the dark background */
 }
 
 /* Navbar Styling */
-.navbar {
-    background-color: #333;
-    overflow: hidden;
+nav {
+    width: 100%;
+    height: 10vh;
     position: sticky;
     top: 0;
-    width: 100%;
     z-index: 1000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.navbar a {
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-    text-align: center;
-    display: inline-block;
-}
-
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-/* Hero Section with Gradient Background */
-.hero {
-    background: linear-gradient(45deg, #007BFF, #28a745);
-    color: white;
-    padding: 80px 20px;
-    text-align: center;
-    margin-bottom: 40px;
-    animation: fadeIn 2s ease-in-out;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    animation: slideUp 1.5s ease-out;
-}
-
-.hero p {
-    font-size: 1.3rem;
-    margin-bottom: 25px;
-}
-
-.button {
-    background-color: #ff5722;
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 30px;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
-}
-
-.button:hover {
-    background-color: #e64a19;
-}
-
-/* About Me Section */
-#about {
-    padding: 60px 20px;
-    background-color: #f7f7f7;
-}
-
-.about-content {
+.nav-container {
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
-    gap: 30px;
+    justify-content: space-around;
     align-items: center;
+}
+
+.logo {
+    color: white; /* White logo text for contrast */
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.logo span {
+    color: rgb(255, 69, 0); /* Bright red for the logo highlight */
+    text-shadow: 0 0 10px rgb(255, 69, 0);
+}
+
+.hamburg, .cancel {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: white;
+    font-size: 2rem;
+    display: none;
+}
+
+.nav-container .links {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.nav-container .links a {
+    position: relative;
+    font-size: 1.2rem;
+    color: white; /* White links for contrast */
+    text-decoration: none;
+    font-weight: 500;
+    transform: 0.3s linear;
+}
+
+.nav-container .links a::before {
+    position: absolute;
+    content: "";
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: rgb(255, 69, 0); /* Bright red for hover effect */
+    transition: 0.2s linear;
+}
+
+.nav-container .links a:hover::before {
+    width: 100%;
+}
+
+.nav-container .contact-btn {
+    background-color: transparent;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: 2px solid rgb(255, 69, 0);
+    transition: 0.2s linear;
+}
+
+.nav-container .contact-btn a {
+    color: white;
+    transition: 0.3s linear;
+}
+
+.nav-container .contact-btn:hover, .nav-container .contact-btn:hover a {
+    background-color: rgb(255, 69, 0);
+    color: white;
+}
+
+.nav-container .links a:hover {
+    color: rgb(255, 69, 0);
+}
+
+.dropdown {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    transform: translateY(-500px);
+    width: 100%;
+    height: auto;
+    backdrop-filter: brightness(40%) blur(3px);
+    box-shadow: 0 0 20px black;
+    transition: 0.2s linear;
+}
+
+.dropdown .links a {
+    color: white;
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    padding: 15px 0;
+    align-items: center;
+    transition: 0.2s linear;
+}
+
+.dropdown .links a:hover {
+    background-color: rgb(255, 69, 0);
+}
+
+/* Showcase Section */
+#showcase {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
     animation: fadeInUp 1.5s ease-out;
 }
 
-.about-text {
-    width: 60%;
+/* Projects Section */
+#projects {
+    padding: 60px 20px;
 }
 
-.about-text h3 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
-.about-text p {
-    font-size: 1.2rem;
-    color: #555;
-    line-height: 1.8;
-}
-
-.about-image {
-    width: 35%;
-}
-
-.about-image img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.about-image img:hover {
-    transform: scale(1.05);
-}
-
-/* Image Gallery */
-.gallery {
+.projects {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust the min size for each card */
+    gap: 20px; /* Slightly reduced gap between cards */
     padding: 20px;
     animation: fadeInUp 1.5s ease-out;
+    grid-auto-rows: minmax(250px, auto);  /* Ensure cards are not too tall */
 }
 
-.gallery img {
-    width: 100%;
-    height: 200px; /* Set a fixed height for all images */
-    object-fit: cover; /* Ensures the image is scaled to cover the area */
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Project Showcase */
-.projects {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-around;
-    padding: 40px;
-    animation: fadeInUp 1.5s ease-out;
-}
-
+/* Project Card Styling */
 .project-card {
     background-color: #fff;
-    padding: 25px;
-    width: 45%;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    height: 100%;
+    overflow: hidden;
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card h3 {
-    font-size: 1.8rem;
+    font-size: 1.5rem; /* Reduced size to fit better */
     color: #333;
+    margin-bottom: 10px;
 }
 
 .project-card p {
     color: #666;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    line-height: 1.6;
 }
 
 .project-card a {
@@ -189,20 +213,16 @@ body {
     background-color: #0056b3;
 }
 
-.project-card img {
-    width: 100%;  /* Make images adjustable with the container */
-    height: auto; /* Automatically adjust the height to maintain aspect ratio */
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
 .project-card img:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-
-
+/* Animations */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
 
 /* Footer Styling */
 footer {
@@ -221,22 +241,6 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-@keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideUp {
-    0% { transform: translateY(20px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
 }
 
 /* Responsive Design */
