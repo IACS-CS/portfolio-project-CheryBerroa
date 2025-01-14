@@ -191,7 +191,7 @@ nav {
 
 .about-image {
     flex: 1;
-    max-width: 500px;
+    max-width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
